@@ -56,7 +56,7 @@ public class ConfirmationButton extends Button {
 		}
 
 		if (this.closeAfterResponse) {
-			Menu menu = Menu.currentlyOpenedMenus.get(player.getName());
+			Menu menu = Menu.currentlyOpenedMenus.get(player.getUniqueId());
 
 			if (menu != null) {
 				menu.setClosedByMenu(true);
