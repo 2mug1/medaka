@@ -34,7 +34,7 @@ public final class Medaka {
      */
     public static void init (Plugin plugin) {
         plugin.getLogger().info("[medaka] 初期化中...");
-        plugin.getLogger().info("[medaka] MenuUpdateRunnable を起動しています");
+        plugin.getLogger().info("[medaka] MenuUpdateRunnable を起動しています...");
         menuUpdateTask = plugin.getServer().getScheduler().runTaskTimer(plugin, new MenuUpdateRunnable(), 20L, 20L);
         plugin.getLogger().info("[medaka] MenuUpdateRunnable を起動しました");
         plugin.getLogger().info("[medaka] 初期化が完了しました");
