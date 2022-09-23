@@ -24,6 +24,14 @@ public abstract class Menu extends Strapped {
 
 	public static Map<UUID, Menu> currentlyOpenedMenus = new HashMap<>();
 
+	public static void init (Plugin plugin) {
+		plugin.getLogger().info("[medaka] 初期化中...");
+		plugin.getLogger().info("[medaka] MenuUpdateRunnable を起動しています");
+		plugin.getServer().getScheduler().runTaskTimer(plugin, new MenuUpdateRunnable(), 20L, 20L);
+		plugin.getLogger().info("[medaka] MenuUpdateRunnable を起動しました");
+		plugin.getLogger().info("[medaka] 初期化が完了しました");
+	}
+
 	private Map<Integer, Button> buttons = new HashMap<>();
 	private boolean autoUpdate = false;
 	private boolean updateAfterClick = true;
