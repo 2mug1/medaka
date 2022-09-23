@@ -2,6 +2,7 @@ package net.iamtakagi.medaka.button;
 
 import net.iamtakagi.iroha.callback.TypeCallback;
 import net.iamtakagi.medaka.Button;
+import net.iamtakagi.medaka.Medaka;
 import net.iamtakagi.medaka.Menu;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -56,7 +57,7 @@ public class ConfirmationButton extends Button {
 		}
 
 		if (this.closeAfterResponse) {
-			Menu menu = Menu.currentlyOpenedMenus.get(player.getUniqueId());
+			Menu menu = Medaka.getCurrentlyOpenedMenus().get(player.getUniqueId());
 
 			if (menu != null) {
 				menu.setClosedByMenu(true);

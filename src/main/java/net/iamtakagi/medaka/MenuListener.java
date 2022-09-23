@@ -19,7 +19,7 @@ public class MenuListener extends StrappedListener {
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
 	public void onButtonPress(InventoryClickEvent event) {
 		Player player = (Player) event.getWhoClicked();
-		Menu openMenu = Menu.currentlyOpenedMenus.get(player.getUniqueId());
+		Menu openMenu = Medaka.getCurrentlyOpenedMenus().get(player.getUniqueId());
 
 		if (openMenu != null) {
 			if (event.getSlot() != event.getRawSlot()) {
@@ -47,8 +47,8 @@ public class MenuListener extends StrappedListener {
 				button.clicked(player, event.getClick());
 				button.clicked(player, event.getSlot(), event.getClick(), event.getHotbarButton());
 
-				if (Menu.currentlyOpenedMenus.containsKey(player.getUniqueId())) {
-					Menu newMenu = Menu.currentlyOpenedMenus.get(player.getUniqueId());
+				if (Medaka.getCurrentlyOpenedMenus().containsKey(player.getUniqueId())) {
+					Menu newMenu = Medaka.getCurrentlyOpenedMenus().get(player.getUniqueId());
 
 					if (newMenu == openMenu) {
 						boolean buttonUpdate = button.shouldUpdate(player, event.getClick());
@@ -81,12 +81,12 @@ public class MenuListener extends StrappedListener {
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onInventoryClose(InventoryCloseEvent event) {
 		Player player = (Player) event.getPlayer();
-		Menu openMenu = Menu.currentlyOpenedMenus.get(player.getUniqueId());
+		Menu openMenu = Medaka.getCurrentlyOpenedMenus().get(player.getUniqueId());
 
 		if (openMenu != null) {
 			openMenu.onClose(player);
 
-			Menu.currentlyOpenedMenus.remove(player.getUniqueId());
+			Medaka.getCurrentlyOpenedMenus().remove(player.getUniqueId());
 		}
 	}
 
