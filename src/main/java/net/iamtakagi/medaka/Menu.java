@@ -22,16 +22,6 @@ import org.bukkit.plugin.Plugin;
 @Setter
 public abstract class Menu extends Strapped {
 
-	public static Map<UUID, Menu> currentlyOpenedMenus = new HashMap<>();
-
-	public static void init (Plugin plugin) {
-		plugin.getLogger().info("[medaka] 初期化中...");
-		plugin.getLogger().info("[medaka] MenuUpdateRunnable を起動しています");
-		plugin.getServer().getScheduler().runTaskTimer(plugin, new MenuUpdateRunnable(), 20L, 20L);
-		plugin.getLogger().info("[medaka] MenuUpdateRunnable を起動しました");
-		plugin.getLogger().info("[medaka] 初期化が完了しました");
-	}
-
 	private Map<Integer, Button> buttons = new HashMap<>();
 	private boolean autoUpdate = false;
 	private boolean updateAfterClick = true;
@@ -62,7 +52,7 @@ public abstract class Menu extends Strapped {
 	public void openMenu(final Player player) {
 		this.buttons = this.getButtons(player);
 
-		Menu previousMenu = Menu.currentlyOpenedMenus.get(player.getUniqueId());
+		Menu previousMenu = Medaka.currentlyOpenedMenus.get(player.getUniqueId());
 		Inventory inventory = null;
 		int size = this.getSize() == -1 ? this.size(this.buttons) : this.getSize();
 		boolean update = false;
@@ -94,7 +84,7 @@ public abstract class Menu extends Strapped {
 
 		inventory.setContents(new ItemStack[inventory.getSize()]);
 
-		currentlyOpenedMenus.put(player.getUniqueId(), this);
+		Medaka.currentlyOpenedMenus.put(player.getUniqueId(), this);
 
 		for (Map.Entry<Integer, Button> buttonEntry : this.buttons.entrySet()) {
 			inventory.setItem(buttonEntry.getKey(), createItemStack(player, buttonEntry.getValue()));
@@ -122,7 +112,7 @@ public abstract class Menu extends Strapped {
 	public void openMenu(final Player player, int size) {
 		this.buttons = this.getButtons(player);
 
-		Menu previousMenu = Menu.currentlyOpenedMenus.get(player.getUniqueId());
+		Menu previousMenu = Medaka.currentlyOpenedMenus.get(player.getUniqueId());
 		Inventory inventory = null;
 		boolean update = false;
 		String title = Style.translate(this.getTitle(player));
@@ -153,7 +143,7 @@ public abstract class Menu extends Strapped {
 
 		inventory.setContents(new ItemStack[inventory.getSize()]);
 
-		currentlyOpenedMenus.put(player.getUniqueId(), this);
+		Medaka.currentlyOpenedMenus.put(player.getUniqueId(), this);
 
 		for (Map.Entry<Integer, Button> buttonEntry : this.buttons.entrySet()) {
 			inventory.setItem(buttonEntry.getKey(), createItemStack(player, buttonEntry.getValue()));
