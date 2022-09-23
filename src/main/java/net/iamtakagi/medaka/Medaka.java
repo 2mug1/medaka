@@ -21,7 +21,7 @@ public final class Medaka {
 
     /**
      * 初期化処理を行う関数
-     * 外部から Medaka.init(org.bukkit.plugin.Plugin); で呼び出すことで処理可能
+     * 外部から Medaka.init(org.bukkit.plugin.Plugin); を呼び出すことで処理される
      * @param plugin
      */
     public static void init (Plugin plugin) {
