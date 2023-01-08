@@ -6,7 +6,7 @@
 
 `pom.xml`
 ```xml
- <repository>
+<repository>
   <id>github</id>
   <name>medaka</name>
   <url>https://maven.pkg.github.com/2mug1/medaka</url>
