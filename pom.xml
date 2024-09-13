@@ -14,11 +14,11 @@
 
     <groupId>net.iamtakagi</groupId>
     <artifactId>medaka</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
     <properties>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
+        <maven.compiler.source>22</maven.compiler.source>
+        <maven.compiler.target>22</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -38,7 +38,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>1.18.34</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -50,7 +50,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-text</artifactId>
-            <version>1.9</version>
+            <version>1.12.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -108,8 +108,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <source>18</source>
-                    <target>18</target>
+                    <source>22</source>
+                    <target>22</target>
                     <compilerArgument>-parameters</compilerArgument>
                 </configuration>
             </plugin>
